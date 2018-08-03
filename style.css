@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+	margin: 0;
+	padding : 0;
+	font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+a {
+  color: #18bc9c;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+#container {
+  padding: 30px 50px;
+  text-align: center;
+}
+#initial-word-form input {
+  width: 25%;
+  padding: 12px 20px;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+}
+#related-word {
+  display: inline-block;
+  margin: 20px;
+  font-size: 28px;
+}
+#related-word.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+#history {
+  text-align: left;
+}
+#history span {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: default;
+  padding: 9px 15px;
+  margin: 10px;
+}
+
+/* Tooltip */  
+[data-tooltip] { /* Add this attribute to the element that needs a tooltip */
+  position: relative;
+  z-index: 2;
+}
+[data-tooltip]:before,
+[data-tooltip]:after { /* Hide the tooltip content by default */
+  visibility: hidden;
+  opacity: 0;
+}
+[data-tooltip]:before { /* Position tooltip above the element */
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+[data-tooltip]:after { /* Triangle hack to make tooltip look like a speech bubble */
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #000;
+  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after { /* Show tooltip content on hover */
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  #initial-word-form input { width: 35%; }
+}
+@media (max-width: 768px) {
+  * { font-size: 14px; }
+  #container { padding: 30px 35px; }
+  #initial-word-form input { width: 100%; }
+  #related-word { margin: 16px; font-size: 20px; }
+  #history span { padding: 6px 8px; margin: 5px 1px; }
+  [data-tooltip]:before { margin-left: -60px; width: 120px; font-size: 12px; }
+}
